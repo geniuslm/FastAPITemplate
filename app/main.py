@@ -2,11 +2,15 @@
 from fastapi import FastAPI
 from .api.目录_API import router as 目录_router
 from .api.TXT文件_API import router as txt_router
+from .api.订单查询_API import 路由 as 订单查询_router
 
 app = FastAPI()
 
 app.include_router(txt_router)
 app.include_router(目录_router)
+app.include_router(订单查询_router)
+
+
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
